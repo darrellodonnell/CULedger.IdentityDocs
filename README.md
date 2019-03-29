@@ -6,7 +6,10 @@ Watch the Connect.Me introduction video [Introduction to Connect.me](https://cul
 
 ### Explore the samples
 
-Sample code is included for shell scripting and Nodejs.  
+Sample code is included for shell scripting and Nodejs. See the [Github repo](https://github.com/darrellodonnell/CULedger.IdentityDocs) for the examples. 
+
+* onboard-0.1.0.sh - shell script that provides a sample onboarding
+* authenticate-0.1.0.sh - shell script that authenticates a sample member
 
 ### API Documentation
 
