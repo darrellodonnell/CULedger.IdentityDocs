@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "843741f7-5b29-4527-97f7-376b4e9f4011",
+		"name": "CULedger.IdentityAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Onboard",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"memberId\": \"A123456\",\n    \"memberPhoneNumber\": \"16232036277\",\n    \"memberEmail\": \"someone@culedger.com\",\n    \"displayTextFromFI\": \"Let's get connected via MyCUID!\",\n    \"credentialData\": {\n        \"id\": \"UUID-GOES-HERE\",\n        \"Institution\": \"CULedger Credit Union\",\n        \"memberId\": \"A123456\",\n        \"status\": \"active\",\n        \"memberSince\": null,\n        \"credDataPayload\": \"\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://dfculidentity.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/member/A123456/onboard",
+					"protocol": "http",
+					"host": [
+						"dfculidentity",
+						"westus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"darrellodonnell",
+						"CULedger.Identity",
+						"0.1.0",
+						"member",
+						"A123456",
+						"onboard"
+					]
+				},
+				"description": "Onboard a new member"
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://dfculidentity.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/member/A123456/authenticate",
+					"protocol": "http",
+					"host": [
+						"dfculidentity",
+						"westus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"darrellodonnell",
+						"CULedger.Identity",
+						"0.1.0",
+						"member",
+						"A123456",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

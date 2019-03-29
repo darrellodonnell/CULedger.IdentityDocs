@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+## Welcome to CULedger IdentityDocs Code Samples
 
-You can use the [editor on GitHub](https://github.com/darrellodonnell/CULedger.IdentityDocs/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Intro Video
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Watch the Connect.Me introduction video [Introduction to Connect.me](https://culedger.s3.amazonaws.com/videos/InstallingConnectMeforCULedger-PoCs.mp4)
 
-### Markdown
+### Explore the samples
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Sample code is included for shell scripting and Nodejs.  
 
-```markdown
-Syntax highlighted code block
+### API Documentation
 
-# Header 1
-## Header 2
-### Header 3
+Swagger docs can be found [here](http://culidentityapi.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/swagger-ui.html#!/developers)
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/darrellodonnell/CULedger.IdentityDocs/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+A Postman collection is included in the repo.
