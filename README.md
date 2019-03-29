@@ -13,3 +13,7 @@ Sample code is included for shell scripting and Nodejs.
 Swagger docs can be found [here](http://culidentityapi.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/swagger-ui.html#!/developers)
 
 A Postman collection is included in the repo.
+
+### Customize the Samples
+
+Simply change the `endpoint` definition in the shell script files to the URL provided by CULedger to see the customized messages in Connect.me
