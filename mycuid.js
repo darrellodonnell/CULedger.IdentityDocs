@@ -28,16 +28,15 @@ myCuidHandler.sendInvitation(user._id, user.phone,
 function sendInvitation (member_id, phone_number, callback) {
   sendRequest(buildRequest(member_id, 'onboard', {
     "memberId": member_id,
-    "memberPhoneNumber": phone_number,
-    "memberEmail": "",
+    "phoneNumber": phone_number,
+    "emailAddress": "",
     "displayTextFromFI": "Let's get connected via MyCUID!",
     "credentialData": {
-        "id": "UUID-GOES-HERE",
+        "CredentialId": "UUID-GOES-HERE",
         "Institution": "CULedger Credit Union",
-        "memberId": member_id,
-        "status": "active",
-        "memberSince": null,
-        "credDataPayload": ""
+        "Credential": null,
+        "memberNumber": member_id,
+        "memberSince": null
       }
     }, 'POST'), 
     callback)
@@ -62,8 +61,8 @@ function buildRequest(member_id, uri, json_data, request_method) {
   /*
    * To run this against a local docker image replace the baseUrl in the return
    * statement with this one: 
-   *    baseUrl: "http://localhost:8080/darrellodonnell/CULedger.Identity/0.1.0/member/".concat(member_id),
-   *    baseUrl: "http://168.61.184.74:8080/darrellodonnell/CULedger.Identity/0.1.0/member/".concat(member_id),
+   *    baseUrl: "http://localhost:8080/CULedger/CULedger.Identity/0.2.0/member/".concat(member_id),
+   *    baseUrl: "https://culidentity.culedgerapi.com/CULedger/CULedger.Identity/0.2.0/member/".concat(member_id),
    */
   return {
     method: request_method,

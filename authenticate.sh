@@ -19,7 +19,7 @@ if [ -z $MEMBERID ]; then
   exit
 fi
 
-endpoint="http://culidentityapi.westus.cloudapp.azure.com:8080"
+endpoint="https://olenickculidentity.culedgerapi.com"
 
-curl -H "Content-Type: application/json" -X PUT "$endpoint/darrellodonnell/CULedger.Identity/0.1.0/member/$MEMBERID/authenticate"
+curl -H "Content-Type: application/json" -X PUT "$endpoint/CULedger/CULedger.Identity/0.2.0/member/$MEMBERID/authenticate"
 

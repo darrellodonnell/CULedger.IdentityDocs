@@ -19,23 +19,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"memberId\": \"A123456\",\n    \"memberPhoneNumber\": \"16232036277\",\n    \"memberEmail\": \"someone@culedger.com\",\n    \"displayTextFromFI\": \"Let's get connected via MyCUID!\",\n    \"credentialData\": {\n        \"id\": \"UUID-GOES-HERE\",\n        \"Institution\": \"CULedger Credit Union\",\n        \"memberId\": \"A123456\",\n        \"status\": \"active\",\n        \"memberSince\": null,\n        \"credDataPayload\": \"\"\n    }\n}"
+					"raw": "{\n    \"memberId\": \"A123456\",\n    \"phoneNumber\": \"<insert phone>\",\n    \"emailAddress\": \"someone@culedger.com\",\n    \"displayTextFromFI\": \"Let's get connected via MyCUID!\",\n    \"credentialData\": {\n        \"CredentialId\": \"UUID-GOES-HERE\",\n        \"Institution\": \"CULedger Credit Union\",\n                \"Credential\": null,\n        \"memberNumber\": \"A123456\",\n        \"memberSince\": null\n    }\n}"
 				},
 				"url": {
-					"raw": "http://dfculidentity.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/member/A123456/onboard",
-					"protocol": "http",
+					"raw": "https://culidentity.culedgerapi.com/CULedger/CULedger.Identity/0.2.0/member/A123456/onboard",
+					"protocol": "https",
 					"host": [
-						"dfculidentity",
-						"westus",
-						"cloudapp",
-						"azure",
+						"culidentity",
+						"culedgerapi",
 						"com"
 					],
-					"port": "8080",
 					"path": [
-						"darrellodonnell",
+						"CULedger",
 						"CULedger.Identity",
-						"0.1.0",
+						"0.2.0",
 						"member",
 						"A123456",
 						"onboard"
@@ -61,20 +58,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://dfculidentity.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/member/A123456/authenticate",
-					"protocol": "http",
+					"raw": "https://culidentity.culedgerapi.com/CULedger/CULedger.Identity/0.2.0/member/A123456/authenticate",
+					"protocol": "https",
 					"host": [
-						"dfculidentity",
-						"westus",
-						"cloudapp",
-						"azure",
+						"culidentity",
+						"culedgerapi",
 						"com"
 					],
-					"port": "8080",
 					"path": [
-						"darrellodonnell",
+						"CULedger",
 						"CULedger.Identity",
-						"0.1.0",
+						"0.2.0",
 						"member",
 						"A123456",
 						"authenticate"
