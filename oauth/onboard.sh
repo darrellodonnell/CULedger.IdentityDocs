@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./config.sh
+
 while getopts :i:p: opt; do
   case "${opt}" in
     i) MEMBERID=${OPTARG}
@@ -14,16 +16,15 @@ done
 if [ -z $MEMBERID ] || [ -z $PHONE ]; then
   echo "===================================================================================="
   echo "USAGE:"
-  echo "  -i: Member Identifier"
-  echo "  -p: Phone Number that will receive the txt message for ConnectMe introduction"
+  echo "       -i: Member Identifier"
+  echo "       -p: Phone Number that will receive the txt message for ConnectMe introduction"
   echo ""
   echo "  Please provide both memberId and phoneNumber as they are required for this procedure"
   echo "===================================================================================="
   exit
 fi
 
-endpoint="http://localhost:8080"
-input_json=$(cat <<EOF
+INPUT_JSON=$(cat <<EOF
 {
     "memberId": "$MEMBERID",
     "phoneNumber": "$PHONE",
@@ -32,7 +33,7 @@ input_json=$(cat <<EOF
     "credentialData": {
         "CredentialId": "UUID-GOES-HERE",
         "Institution": "CULedger Credit Union",
-        "credential": null,
+        "Credential": null,
         "memberNumber": "$MEMBERID",
         "memberSince": null
     }
@@ -40,4 +41,17 @@ input_json=$(cat <<EOF
 EOF
 )
 
-curl -H "Content-Type: application/json" -X POST -d "$input_json" "$endpoint/CULedger/CULedger.Identity/0.2.0/member/$MEMBERID/onboard"
+TOKEN=$(curl -s -X POST \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        -d "client_id=$CLIENTID" \
+        -d "grant_type=client_credentials" \
+        -d "client_secret=$SECRET" \
+        "https://login.microsoftonline.com/$TENANTID/oauth2/token" | jq -r .access_token)
+
+curl \
+  -H "Content-Type: application/json" \
+  -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
+  -H "Authorization: Bearer $TOKEN" \
+  -X POST \
+  -d "$INPUT_JSON" \
+  "$ENDPOINT/CULedger/CULedger.Identity/0.2.0/member/$MEMBERID/onboard"
