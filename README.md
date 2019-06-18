@@ -13,7 +13,7 @@ Sample code is included for shell scripting and Nodejs. See the [Github repo](ht
 
 ### API Documentation
 
-Swagger docs can be found [here](https://culidentity.culedgerapi.com/CULedger/CULedger.Identity/0.2.0/swagger-ui.html#!/developers)
+Swagger docs can be found [here](https://app.swaggerhub.com/apis-docs/CULedger/CULedger.Identity/0.2.0/)
 
 A Postman collection is included in the repo.
 
