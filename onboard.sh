@@ -22,25 +22,22 @@ if [ -z $MEMBERID ] || [ -z $PHONE ]; then
   exit
 fi
 
-endpoint="http://culidentityapi.westus.cloudapp.azure.com:8080"
-
+endpoint="http://localhost:8080"
 input_json=$(cat <<EOF
 {
     "memberId": "$MEMBERID",
-    "memberPhoneNumber": "$PHONE",
-    "memberEmail": "someone@culedger.com",
+    "phoneNumber": "$PHONE",
+    "emailAddress": "someone@culedger.com",
     "displayTextFromFI": "Let's get connected via MyCUID!",
     "credentialData": {
-        "id": "UUID-GOES-HERE",
+        "CredentialId": "UUID-GOES-HERE",
         "Institution": "CULedger Credit Union",
-        "memberId": "$MEMBERID",
-        "status": "active",
-        "memberSince": null,
-        "credDataPayload": ""
+        "credential": null,
+        "memberNumber": "$MEMBERID",
+        "memberSince": null
     }
 }
 EOF
 )
 
-curl -H "Content-Type: application/json" -X POST -d "$input_json" "$endpoint/darrellodonnell/CULedger.Identity/0.1.0/member/$MEMBERID/onboard"
-
+curl -H "Content-Type: application/json" -X POST -d "$input_json" "$endpoint/CULedger/CULedger.Identity/0.2.0/member/$MEMBERID/onboard"

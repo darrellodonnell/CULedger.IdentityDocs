@@ -8,12 +8,12 @@ Watch the Connect.Me introduction video [Introduction to Connect.me](https://cul
 
 Sample code is included for shell scripting and Nodejs. See the [Github repo](https://github.com/darrellodonnell/CULedger.IdentityDocs) for the examples. 
 
-* onboard-0.1.0.sh - shell script that provides a sample onboarding
-* authenticate-0.1.0.sh - shell script that authenticates a sample member
+* onboard.sh - shell script that provides a sample onboarding
+* authenticate.sh - shell script that authenticates a sample member
 
 ### API Documentation
 
-Swagger docs can be found [here](http://culidentityapi.westus.cloudapp.azure.com:8080/darrellodonnell/CULedger.Identity/0.1.0/swagger-ui.html#!/developers)
+Swagger docs can be found [here](https://app.swaggerhub.com/apis-docs/CULedger/CULedger.Identity/0.2.0/)
 
 A Postman collection is included in the repo.
 
