@@ -32,10 +32,11 @@ INPUT_JSON=$(cat <<EOF
     "displayTextFromFI": "Let's get connected via MyCUID!",
     "credentialData": {
         "CredentialId": "UUID-GOES-HERE",
+        "CredentialDescription": "TESTING",
         "Institution": "CULedger Credit Union",
-        "Credential": null,
-        "memberNumber": "$MEMBERID",
-        "memberSince": null
+        "CredentialName": "TEST CRED",
+        "MemberNumber": "$MEMBERID",
+        "MemberSince": "NOV2016"
     }
 }
 EOF
