@@ -42,7 +42,7 @@ INPUT_JSON=$(cat <<EOF
 EOF
 )
 
-TOKEN=$(curl -s -X POST \
+TOKEN=$(curl -s -v \
         -H "Content-Type: application/x-www-form-urlencoded" \
         -d "client_id=$CLIENTID" \
         -d "grant_type=client_credentials" \
