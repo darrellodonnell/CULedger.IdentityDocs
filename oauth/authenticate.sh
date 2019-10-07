@@ -10,7 +10,7 @@ while getopts :i: opt; do
     ;;
   esac
 done
-
+pos
 if [ -z $MEMBERID ]; then
   echo "===================================================================================="
   echo "USAGE:"
