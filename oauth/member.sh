@@ -16,22 +16,10 @@ if [ -z $MEMBERID ]; then
   echo "USAGE:"
   echo "  -i: Member Identifier"
   echo ""
-  echo "  Please provide memberId as it is required for this procedure"
+  echo "  Please provide a memberId as it is required for this procedure"
   echo "===================================================================================="
   exit
 fi
-
-input_json=$(cat <<EOF
-{
-    "messageId": "42",
-    "messageTitle": "CULedger is asking you a question",
-    "messageQuestion": "Hi, Alice",
-    "messageText": "Would you like to transfer 100 to Bob?",
-    "primaryOptionText": "Yes, I would",
-    "secondaryOptionText": "No, I would not"
-}
-EOF
-)
 
 TOKEN=$(curl -s -X POST \
         -H "Content-Type: application/x-www-form-urlencoded" \
@@ -40,9 +28,7 @@ TOKEN=$(curl -s -X POST \
         -d "client_secret=$SECRET" \
         "https://login.microsoftonline.com/$TENANTID/oauth2/token" | jq -r .access_token)
 
-curl \
-  -H "Content-Type: application/json" \
-  -d "$input_json" \
+curl -v \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.2.0/member/$MEMBERID/SendAntiFraudPrompt"
+  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID"

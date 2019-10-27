@@ -29,8 +29,6 @@ TOKEN=$(curl -s -X POST \
         "https://login.microsoftonline.com/$TENANTID/oauth2/token" | jq -r .access_token)
 
 curl -v \
-  -d '' \
-  -X PUT \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/authenticate"
+  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/createInvitation"

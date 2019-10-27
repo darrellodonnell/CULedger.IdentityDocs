@@ -56,4 +56,4 @@ curl -k \
   -H "Authorization: Bearer $TOKEN" \
   -X POST \
   -d "$INPUT_JSON" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.2.0/member/$MEMBERID/onboard"
+  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/onboard"
