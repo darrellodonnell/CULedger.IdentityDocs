@@ -45,4 +45,4 @@ curl -v \
   -d "$input_json" \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/SendAntiFraudPrompt"
+  "$ENDPOINT/member/$MEMBERID/SendAntiFraudPrompt"

@@ -7,7 +7,8 @@ CLIENTID="UUID_VALUE_FOR_CLIENTID"                 #client id provided by CULedg
 SECRET="CLIENT_SECRET"                             #client secret provided by CULedger
 TENANTID="UUID_FOR_TENANTID"                       #tenant id provided by CULedger
 SUBSCRIPTIONKEY="SUBSCRIPTION_KEY"                 #subscription key provided by CULedger
-ENDPOINT="https://exampleendpoint.culedgerapi.com" #api endpoint provided by CULedger
+#FULL api endpoint provided by CULedger
+ENDPOINT="https://exampleendpoint.culedgerapi.com/CULedger/CULedger.Identity/0.3.0"
 
 # ============================================================================================
 

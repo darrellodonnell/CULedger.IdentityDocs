@@ -18,7 +18,7 @@ poll() {
   -H "Content-Type: application/json" \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/poll/$JOBID")
+  "$ENDPOINT/poll/$JOBID")
 }
 
 poll

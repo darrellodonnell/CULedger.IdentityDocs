@@ -33,4 +33,4 @@ curl -v \
   -X PUT \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/authenticate"
+  "$ENDPOINT/member/$MEMBERID/authenticate"
