@@ -2,15 +2,29 @@
 
 source ./config.sh
 
-while getopts :i: opt; do
+# getopts :i:p: opt; do
+while getopts :i:m:question:yes:no:notification:greeting: opt; do
   case "${opt}" in
     i) MEMBERID=${OPTARG}
     ;;
+    m) MESSAGE=${OPTARG}
+    ;;
+    greeting) GREETING=${OPTARG}
+    ;;
+    no) NOQUESTION=${OPTARG}
+    ;;
+    yes) YESQUESTION=${OPTARG}
+    ;;
+    notification) NOTIFICATION=${OPTARG}
+    ;;
+
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
   esac
 done
 
+
+# -i MemberID
 if [ -z $MEMBERID ]; then
   echo "===================================================================================="
   echo "USAGE:"
@@ -21,14 +35,40 @@ if [ -z $MEMBERID ]; then
   exit
 fi
 
+# set defaults
+if [ -z $NOTIFICATION ]; then
+  NOTIFICATION="The credit union has a secure question for you."
+fi
+if [ -z $MESSAGE ]; then
+  MESSAGE="Please confirm that you are speaking with the credit union."
+fi
+if [ -z $NOQUESTION ]; then
+  NOQUESTION="No, I am not."
+fi
+if [ -z $YESQUESTION ]; then
+  YESQUESTION="No, I am not."
+fi
+if [ -z $GREETING ]; then
+  GREETING="Security check."
+fi
+
+
+
+echo "MemberID: $MEMBERID"
+echo "NOTIFICATION: $NOTIFICATION"
+echo "GREETING: $GREETING"
+echo "MESSAGE: $MESSAGE"
+echo "YESQUESTION: $YESQUESTION"
+echo "NOQUESTION: $NOQUESTION"
+
 input_json=$(cat <<EOF
 {
     "messageId": "42",
-    "messageTitle": "CULedger is asking you a question",
-    "messageQuestion": "Hi, Alice",
-    "messageText": "Would you like to transfer 100 to Bob?",
-    "positiveOptionText": "Yes, I would",
-    "negativeOptionText": "No, I would not"
+    "messageTitle": "$NOTIFICATION",
+    "messageQuestion": "$GREETING",
+    "messageText": "$MESSAGE",
+    "positiveOptionText": "$YESQUESTION",
+    "negativeOptionText": "$NOQUESTION"
 }
 EOF
 )
