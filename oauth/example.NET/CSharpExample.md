@@ -28,7 +28,7 @@ namespace CULedger.IdentityOAuthSample
         static string clientSecret = "<CLIENTSECRET>";          // private key for Client
         static string tenantId = "<TENANTID>";                  // UUID for TenantID (CULedger AD)
         static string endpointURL = "<ENDPOINTURL>";            // e.g. https://sample.culedgerapi.com/CULedger/CULedger.Identity/0.2.0
-        static string subscriptionKey = "<SUBSCRIPTIONKEY>";    // SUBSCRIPTION KEY 
+        
 
 
 
@@ -95,7 +95,7 @@ namespace CULedger.IdentityOAuthSample
                 client.BaseAddress = new Uri(baseURL);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " +  token);
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                
 
                 HttpResponseMessage response = await client.GetAsync(baseURL);
                 
