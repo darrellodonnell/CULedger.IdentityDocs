@@ -12,4 +12,4 @@ TOKEN=$(curl -s -X POST \
 curl -v \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/version"
+  "$ENDPOINT/heartbeat"

@@ -58,7 +58,9 @@ TOKEN=$(curl -s -v \
         -d "client_secret=$SECRET" \
         "https://login.microsoftonline.com/$TENANTID/oauth2/token" | jq -r .access_token)
 
-curl -k \
+echo "$ENDPOINT/member/$MEMBERID/onboard"
+
+curl -k -v \
   -H "Prefer: respond-async" \
   -H "Content-Type: application/json" \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
