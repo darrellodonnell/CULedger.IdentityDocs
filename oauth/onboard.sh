@@ -60,7 +60,7 @@ TOKEN=$(curl -s -v \
 
 echo "$ENDPOINT/member/$MEMBERID/onboard"
 
-curl -k -v \
+curl -k -v -s \
   -H "Prefer: respond-async" \
   -H "Content-Type: application/json" \
   -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
