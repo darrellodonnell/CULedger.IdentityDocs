@@ -24,11 +24,11 @@ fi
 input_json=$(cat <<EOF
 {
     "messageId": "42",
-    "messageTitle": "CULedger is asking you a question",
-    "messageQuestion": "Hi, Alice",
-    "messageText": "Would you like to transfer 100 to Bob?",
-    "positiveOptionText": "Yes, I would",
-    "negativeOptionText": "No, I would not"
+    "messageTitle": "UNIFY Credit Union is asking you a question",
+    "messageQuestion": "Hi, John",
+    "messageText": "Are you talking to the UNIFY call center?",
+    "positiveOptionText": "Yes, I am",
+    "negativeOptionText": "No, I am not"
 }
 EOF
 )
@@ -45,4 +45,4 @@ curl -v \
   -H "Content-Type: application/json" \
   -d "$input_json" \
   -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/authenticateSimple"
+  "$ENDPOINT/member/$MEMBERID/authenticateSimple"
