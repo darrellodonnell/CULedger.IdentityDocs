@@ -10,6 +10,5 @@ TOKEN=$(curl -s -X POST \
         "https://login.microsoftonline.com/$TENANTID/oauth2/token" | jq -r .access_token)
 
 curl -v \
-  -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
   "$ENDPOINT/heartbeat"

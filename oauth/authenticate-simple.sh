@@ -44,6 +44,5 @@ curl -v \
   -X PUT \
   -H "Content-Type: application/json" \
   -d "$input_json" \
-  -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
   "$ENDPOINT/CULedger/CULedger.Identity/0.3.0/member/$MEMBERID/authenticateSimple"

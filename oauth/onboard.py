@@ -34,7 +34,6 @@ token_url = "https://api.byu.edu/token"
 #TODO: work in E.164 testing
 #
 
-
 #TODO: MOVE TO CONFIG FILE:
 CLIENTID="3160b30a-73c9-49ee-b4c0-bf507f9fdba7"
 SECRET="Y/PZC4uQtDAPJspCoikD43z8atB3NfSMbQoNIFNHaXc="
