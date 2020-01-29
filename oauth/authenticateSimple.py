@@ -1,7 +1,7 @@
 # source based on https://developer.byu.edu/docs/consume-api/use-api/oauth-20/oauth-20-python-sample-code
 #
 __author__ = "Darrell O'Donnell"
-__copyright__ = "Copyright 2019, CULedger, LLC"
+__copyright__ = "Copyright 2019-2020, CULedger, LLC"
 __credits__ = ["BYU-bdm4"]
 __license__ = "BSD-3-Clause"
 __version__ = "1.0.1"
@@ -21,15 +21,17 @@ TENANTID = cfg.API['TENANTID']
 MEMBERPASS_URL = cfg.API['MEMBERPASS_URL']
 OAUTH_URL = cfg.API['OAUTH_URL']
 
+
+
 parser = argparse.ArgumentParser(description='Simple onboarding utility to test CULedger.Identity API.')
 parser.add_argument("--m", default="test1234", help="memberId - do NOT use internally signficant identier.")
-parser.add_argument("--p", help="10-digit (North American) phone number that will be invited")
+
 
 args = parser.parse_args()
 memberId = args.m
-phoneNumber = args.p
-print(memberId)
-print(phoneNumber)
+
+# print(memberId)
+
 
 
 # disable https warnings
@@ -44,6 +46,7 @@ token_url = "https://api.byu.edu/token"
 
 
 
+
 # Get OAuth2 token from Azure AD
 
 
@@ -55,10 +58,10 @@ access_token_response = requests.post(OAUTH_URL, data=data, verify=False, allow_
 # SAMPLE OUTPUT:
 # {'token_type': 'Bearer', 'expires_in': '3599', 'ext_expires_in': '3599', 'expires_on': '1577123924', 'not_before': '1577120024', 'resource': '00000002-0000-0000-c000-000000000000', 'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InBpVmxsb1FEU01LeGgxbTJ5Z3FHU1ZkZ0ZwQSIsImtpZCI6InBpVmxsb1FEU01LeGgxbTJ5Z3FHU1ZkZ0ZwQSJ9.eyJhdWQiOiIwMDAwMDAwMi0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9lN2I2YTY5MC1kMzIyLTQwODUtYjZkNi1kMGE0ZjcwZjBkN2IvIiwiaWF0IjoxNTc3MTIwMDI0LCJuYmYiOjE1NzcxMjAwMjQsImV4cCI6MTU3NzEyMzkyNCwiYWlvIjoiNDJWZ1lEQi9vVFN2VVdMend4TkhhMHVyL0RpOEFBPT0iLCJhcHBpZCI6IjMxNjBiMzBhLTczYzktNDllZS1iNGMwLWJmNTA3ZjlmZGJhNyIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2U3YjZhNjkwLWQzMjItNDA4NS1iNmQ2LWQwYTRmNzBmMGQ3Yi8iLCJvaWQiOiJjNzkzMzA4My0yNmUyLTQ1ODEtODNkYy00NjliZGY2YmM3ZjciLCJzdWIiOiJjNzkzMzA4My0yNmUyLTQ1ODEtODNkYy00NjliZGY2YmM3ZjciLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiJlN2I2YTY5MC1kMzIyLTQwODUtYjZkNi1kMGE0ZjcwZjBkN2IiLCJ1dGkiOiJOeGxlQ1VZNzdFS2hrRGFxOEdueEFBIiwidmVyIjoiMS4wIn0.fDtWNRpAcznVLfbTNMW7NZ-0D435g80u7y2USdcGv3qUIBaysidhekt8ech8OKFJ17hTk8hYWUra8GUmuZ8_tMIZsqLA22dHhniJXkbEdhytzyIEQaaUlc1aP1TF9nxexLyG8jugzDJsAIHHCafvr-r6VBI_qZCr1pbylnUDtzsMafuEc2pxgrgUXylfdwlZAH8YlPFJUiukZHS14olfT61R6WjU4X1rlo_uhUWOLdEYTQhPAu_ndm0OBgJ4ciAW2JnbHm7yXEitNMFdxGHMwXCdWB8T0ycXpS0ZHAoQYRvXWy4RDvYbVvsx_zNqUSUWaif1BJs4vvnfLcQlh1IdcQ'}
 
-print(access_token_response)
+# print("response")
 res = access_token_response.json() #.access_token
-print(res)
-#print(access_token_response.json())
+
+print(access_token_response.json())
 
 
 oauth_token = res["access_token"]
@@ -68,29 +71,24 @@ headers = {'Content-Type': 'application/json',
            # 'Prefer':'respond-async', #remove comment for async
            'Authorization': 'Bearer ' + oauth_token}
 
-onboardData = {"memberId": "testing",
-                                "phoneNumber": "6138668904",
-                                "emailAddress": "bubba@mailnesia.com",
-                                "displayTextFromFI": "Let's get connected via MemberPass!",
-                                "credentialData": {
-                                    "CredentialId": "--",
-                                    "CredentialDescription": "--",
-                                    "Institution": "--",
-                                    "CredentialName": "--",
-                                    "MemberNumber": "--",
-                                    "MemberSince": "--"
-                                }
-                             }
-# print(onboardData)
+authSimpleChallenge = {
+  "messageId": "42",
+  "messageQuestion": "Are you on the phone with UNIFY?",
+  "messageTitle": "UNIFY Credit Union is asking you a question",
+  "messageText": "Our system needs to make sure that you are on the phone with one of our operators. We do this to protect you and your accounts at the credit union.",
+  "positiveOptionText": "Yes, it is me.",
+  "negativeOptionText": "No. I am NOT. That is not me.",
+  "expires": "2020-01-29T19:15:17.897Z"
+}
+print(authSimpleChallenge)
 
-onboardEndpoint ="{}member/{}/onboard".format(MEMBERPASS_URL, memberId)
+authSimpleEndpoint ="{}member/{}/authenticateSimple".format(MEMBERPASS_URL, memberId)
+print(authSimpleEndpoint)
 
-print(onboardEndpoint)
-
-onboardResponse = requests.post(onboardEndpoint, data=json.dumps(onboardData), headers=headers)
+autSimpleResponse = requests.post(authSimpleEndpoint, data=json.dumps(authSimpleChallenge), headers=headers)
 
 print("Onboard Response:")
-print(onboardResponse)
+print(autSimpleResponse)
 
 
 
