@@ -11,8 +11,11 @@ __status__ = "beta"
 
 import requests, json
 import urllib3
+import time
 import argparse
 import config as cfg #config.py
+
+
 
 # READ CONFIG
 CLIENTID = cfg.API['CLIENTID']
@@ -86,12 +89,14 @@ onboardData = {"memberId": "testing",
 onboardEndpoint ="{}member/{}/onboard".format(MEMBERPASS_URL, memberId)
 
 print(onboardEndpoint)
-
+start_time = time.time()
 onboardResponse = requests.post(onboardEndpoint, data=json.dumps(onboardData), headers=headers)
+end_time = time.time()
 
 print("Onboard Response:")
 print(onboardResponse)
-
+print("TIME in API (start to end): ")
+print(end_time - start_time)
 
 
 
