@@ -31,6 +31,5 @@ TOKEN=$(curl -s -X POST \
 curl -v \
   -d '' \
   -X PUT \
-  -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
   "$ENDPOINT/member/$MEMBERID/authenticate"

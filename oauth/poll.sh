@@ -16,7 +16,6 @@ TOKEN=$(curl -s -X POST \
 poll() {
   RESPONSE=$(curl -k -s \
   -H "Content-Type: application/json" \
-  -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
   "$ENDPOINT/poll/$JOBID")
 }

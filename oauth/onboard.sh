@@ -63,7 +63,6 @@ echo "$ENDPOINT/member/$MEMBERID/onboard"
 curl -k -v -s \
   -H "Prefer: respond-async" \
   -H "Content-Type: application/json" \
-  -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTIONKEY" \
   -H "Authorization: Bearer $TOKEN" \
   -X POST \
   -d "$INPUT_JSON" \

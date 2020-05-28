@@ -6,7 +6,6 @@
 CLIENTID="UUID_VALUE_FOR_CLIENTID"                 #client id provided by CULedger
 SECRET="CLIENT_SECRET"                             #client secret provided by CULedger
 TENANTID="UUID_FOR_TENANTID"                       #tenant id provided by CULedger
-SUBSCRIPTIONKEY="SUBSCRIPTION_KEY"                 #subscription key provided by CULedger
 #FULL api endpoint provided by CULedger
 ENDPOINT="https://exampleendpoint.culedgerapi.com/CULedger/CULedger.Identity/0.3.0"
 
@@ -15,7 +14,6 @@ ENDPOINT="https://exampleendpoint.culedgerapi.com/CULedger/CULedger.Identity/0.3
 echo "${CLIENTID:?REQUIRED: client id provided by CULedger}" > /dev/null
 echo "${SECRET:?REQUIRED: client secret provided by CULedger}" > /dev/null
 echo "${TENANTID:?REQUIRED: tenant id provided by CULedger}" > /dev/null
-echo "${SUBSCRIPTIONKEY:?REQUIRED: subscription key provided by CULedger}" > /dev/null
 echo "${ENDPOINT:?REQUIRED: api endpoint provided by CULedger}" > /dev/null
 
 command -v jq >/dev/null 2>&1 || { echo >&2 "I require jq but it's not installed. See https://stedolan.github.io/jq/ for installation instructions"; exit 1; }
