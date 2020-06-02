@@ -24,9 +24,9 @@ fi
 input_json=$(cat <<EOF
 {
     "messageId": "42",
-    "messageTitle": "UNIFY Credit Union is asking you a question",
-    "messageQuestion": "Hi, John",
-    "messageText": "Are you talking to the UNIFY call center?",
+    "messageTitle": "Happy Members Credit Union is asking you a question",
+    "messageQuestion": "Please confirm.",
+    "messageText": "Are you talking to the Happy Members call center?",
     "positiveOptionText": "Yes, I am",
     "negativeOptionText": "No, I am not"
 }
